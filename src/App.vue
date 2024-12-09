@@ -15,7 +15,16 @@ function removerTarefa(i) {
 }
 
 // variável pra nova tarefa
-const novaTarefa = ref("")
+const novaTarefa = ref("");
+
+// função de adicionar
+// trim pra tirar excesso de espaços que podem usar
+function adicionarTarefa() {
+  if(novaTarefa.value.trim() !== "") {
+    tarefas.value.push(novaTarefa.value.trim())
+    novaTarefa.value = ""
+  }
+}
 </script>
 
 <template>
@@ -33,5 +42,6 @@ const novaTarefa = ref("")
 
 <section>
   <input type="text" placeholder="Digite sua nova tarefa" v-model="novaTarefa">
+  <button @click="adicionarTarefa">Adicionar</button>
 </section>
 </template>
