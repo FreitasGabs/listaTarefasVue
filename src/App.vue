@@ -13,6 +13,9 @@ const tarefas = ref([
 function removerTarefa(i) {
   tarefas.value.splice(i, 1)
 }
+
+// variável pra nova tarefa
+const novaTarefa = ref("")
 </script>
 
 <template>
@@ -27,4 +30,8 @@ function removerTarefa(i) {
    <!-- :key sendo como um id para identificar cada item -->
   <li v-for="(tarefa, index) in tarefas" :key="index" >{{ tarefa }} <button @click="removerTarefa(index)">❌ Remover</button></li>
 </ul>
+
+<section>
+  <input type="text" placeholder="Digite sua nova tarefa" v-model="novaTarefa">
+</section>
 </template>
